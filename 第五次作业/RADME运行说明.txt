@@ -1,0 +1,26 @@
+# 桁架有限元程序运行说明
+1. 环境依赖
+Python >=3.9，安装numpy: pip install numpy
+
+2. 文件清单
+main.py         主运行入口
+model.py        前处理、模型读取、LM矩阵
+element.py      单元刚度计算
+assembly.py     总体刚度矩阵组装
+solver.py       缩减法边界条件、方程求解
+postprocess.py  轴力、应力后处理
+truss_1d.json   一维两单元算例
+truss_2d.json   二维两杆桁架算例
+
+3. 运行方式
+命令行进入代码所在文件夹，执行：
+python main.py
+
+4. 输出内容
+1. 总刚矩阵对称性校验结果
+2. 全部全局自由度位移
+3. 约束位置反力
+4. 每个单元长度、轴力、应力（拉力正、压力负）
+
+5. 自定义模型修改
+修改对应json文件：节点坐标、单元连接、E/A、边界约束、节点载荷即可
